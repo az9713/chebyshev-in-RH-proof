@@ -13,6 +13,9 @@ The [HTML companion](index.html) documents how the tutorial was made. It maps ea
 
 The YouTube transcript supplied the chapter structure and examples. [Michael Rubinstein’s working guide, version 2](https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper_v2.pdf) supplied the details of the window argument and the roadmap for the arithmetic bound. The guide takes its central arithmetic inequality from the Lean development. [Alpöge’s announcement](https://alpo.ge/remark.pdf) and the [independent Lean verification statement](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) document the proof and its verification.
 
-## Open the companion locally
+## Live HTML pages
 
-Download [`index.html`](index.html) and open it in a browser. The page is self-contained and uses native MathML for the numerical worked example.
+- [From Chebyshev to the Riemann Hypothesis](https://az9713.github.io/chebyshev-tutorial-method/tutorial.html) is the full tutorial with the derivations, four video frames, and two plots. [HTML source](tutorial.html)
+- [How the Chebyshev tutorial was made](https://az9713.github.io/chebyshev-tutorial-method/) documents the transcript, chapter mapping, frame capture, and mathematical checks. [HTML source](index.html)
+
+Both HTML files can also be downloaded and opened in a browser.
