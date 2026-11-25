@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How an eight-page tutorial on the Alpöge–Claude proof was reconstructed from Dirac’s YouTube transcript, video frames, and mathematical sources.">
+  <title>How the Chebyshev tutorial was made</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3ec;
+      --surface: #fcfbf7;
+      --ink: #192b27;
+      --muted: #485850;
+      --accent: #15584a;
+      --line: #cfd5ca;
+      --tint: #e7eee5;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 1.5rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    main { width: min(65rem, calc(100% - 3rem)); margin-inline: auto; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    header { padding: clamp(2.5rem, 8vw, 6rem) 0 2rem; border-bottom: 1px solid var(--line); }
+    h1, h2 { font-family: Georgia, serif; font-weight: 500; line-height: 1.06; margin: 0; }
+    h1 { font-size: clamp(2.75rem, 7.6vw, 5.8rem); letter-spacing: -.053em; max-width: 13ch; }
+    h2 { font-size: clamp(1.8rem, 4.4vw, 3.15rem); letter-spacing: -.036em; }
+    h3 { font-size: 1rem; margin: 0 0 .45rem; }
+    p { margin: .55rem 0 0; }
+    .intro { max-width: 61ch; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.24rem); margin-top: 1.3rem; }
+    nav { display: flex; flex-wrap: wrap; gap: .45rem 1.4rem; margin-top: 1.55rem; font-size: .93rem; }
+    section { margin-block: clamp(2.6rem, 7vw, 4.7rem); }
+    .methods {
+      list-style: none;
+      padding: 0;
+      margin: 1.4rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .methods li { padding: 1.25rem 1.45rem 1.45rem; background: var(--surface); }
+    .methods p, .sources p { color: var(--muted); }
+    .table-wrap { margin-top: 1.3rem; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    caption { text-align: left; color: var(--muted); margin-bottom: .65rem; }
+    th, td { padding: .8rem .85rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    thead { background: var(--tint); }
+    tbody tr:nth-child(odd) { background: var(--surface); }
+    th:first-child, td:first-child { white-space: nowrap; }
+    th:last-child, td:last-child { text-align: right; }
+    .case { margin-top: 1.25rem; background: var(--tint); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; }
+    .case p { max-width: 74ch; }
+    .formula { margin: .85rem 0 .55rem; overflow-x: auto; padding-bottom: .2rem; }
+    math { font-size: 1.25rem; }
+    .sources ul { margin-top: 1rem; padding-left: 1.2rem; }
+    .sources li + li { margin-top: .55rem; }
+    footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.2rem 0 2.1rem; color: var(--muted); font-size: .87rem; }
+    @media (max-width: 36rem) {
+      main { width: calc(100% - 1.6rem); }
+      .methods { grid-template-columns: 1fr; }
+      th, td { padding: .66rem .48rem; }
+      .case { padding: 1rem; }
+    }
+    @media print {
+      body, .methods li, tbody tr:nth-child(odd) { background: white; }
+      main { width: 100%; }
+      header { padding-top: 0; }
+      nav { display: none; }
+      section { margin-block: 1.5rem; }
+      tr, .case, .methods li { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>How the Chebyshev tutorial was made</h1>
+      <p class="intro">An eight-page tutorial reconstructed from Dirac’s 19-minute Riemann Hypothesis explainer. The full YouTube transcript supplied the outline and examples. Four captured video frames and Rubinstein’s working guide supported the mathematical exposition.</p>
+      <nav aria-label="On this page">
+        <a href="#workflow">Workflow</a>
+        <a href="#chapter-map">Chapter map</a>
+        <a href="#math-check">A mathematical check</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <section id="workflow" aria-labelledby="workflow-heading">
+      <h2 id="workflow-heading">Four steps from video to tutorial</h2>
+      <ol class="methods">
+        <li>
+          <h3>Read the full YouTube transcript</h3>
+          <p>YouTube’s <strong>Show transcript</strong> panel supplied the timestamped narration. I read the full sequence and used the seven chapter starts to organize the tutorial. I inspected the player at selected timestamps to check the on-screen math.</p>
+        </li>
+        <li>
+          <h3>Capture four frames</h3>
+          <p>I captured frames showing the explicit formula, the missing linear term in the ramp sum, the factorial’s rounding loss, and the lattice-index inequality. Each frame sits beside its corresponding derivation in the PDF.</p>
+        </li>
+        <li>
+          <h3>Expand the analytic arguments</h3>
+          <p>I worked out the residue that gives the exact baseline, wrote out Landau’s positivity argument, and used Rubinstein’s version 2 guide to prove the extension to windows. The guide takes its central arithmetic inequality from the Lean development.</p>
+        </li>
+        <li>
+          <h3>Recompute examples and check the PDF</h3>
+          <p>A prime sieve reproduced the video’s numerical example. I made two original plots, one of the normalized prime-sum error and one of the derivative kernels that localize the window argument. I compiled and rendered all eight PDF pages to check layout and legibility.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="chapter-map" aria-labelledby="chapters-heading">
+      <h2 id="chapters-heading">Where each chapter went</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Each timestamp opens the original video at the corresponding chapter.</caption>
+          <thead>
+            <tr><th scope="col">Video</th><th scope="col">Tutorial treatment</th><th scope="col">PDF pages</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=0s">0:00</a></td><td>State the proof target and explain what Lean verification established.</td><td>1</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=123s">2:03</a></td><td>Connect the prime-power staircase to zeta zeros through Euler’s product and the explicit formula.</td><td>2</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=338s">5:38</a></td><td>Derive the ramp weight and calculate the exact baseline from the Laurent expansion at 1.</td><td>3</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=575s">9:35</a></td><td>Prove the one-sided criterion and extend it to windows using high Mellin derivatives.</td><td>4–5</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=739s">12:19</a></td><td>Use divisibility of the central binomial coefficient to bound a sum over primes.</td><td>6</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=873s">14:33</a></td><td>Use Legendre’s formula and Stirling’s formula to expose the factorial’s linear error.</td><td>6</td></tr>
+            <tr><td><a href="https://www.youtube.com/watch?v=7TNj74KXtBA&amp;t=997s">16:37</a></td><td>Derive the lattice-index bound and outline how chains of theta lifts supply the arithmetic input.</td><td>7–8</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="math-check" aria-labelledby="math-heading">
+      <h2 id="math-heading">Reproducing the million-scale example</h2>
+      <div class="case">
+        <p>For each integer <var>n</var>, the sieve uses the weight <var>Λ</var>(<var>n</var>) = log <var>p</var> when <var>n</var> is a power of a prime <var>p</var>, and zero otherwise. I summed those weights against the ramp and subtracted the exact baseline.</p>
+        <div class="formula">
+          <math display="block" aria-label="G of x equals the ramp-weighted prime-power sum minus x log x plus one plus gamma times x">
+            <mi>G</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+            <munder><mo>∑</mo><mrow><mi>n</mi><mo>≤</mo><mi>x</mi></mrow></munder>
+            <mi>Λ</mi><mo>(</mo><mi>n</mi><mo>)</mo>
+            <mo>(</mo><mfrac><mi>x</mi><mi>n</mi></mfrac><mo>−</mo><mn>1</mn><mo>)</mo>
+            <mo>−</mo><mi>x</mi><mi>log</mi><mo>⁡</mo><mi>x</mi>
+            <mo>+</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>γ</mi><mo>)</mo><mi>x</mi>
+          </math>
+        </div>
+        <p>Here <var>γ</var> is the Euler–Mascheroni constant. The calculation gave <strong><var>G</var>(10<sup>6</sup>) ≈ 11.0404</strong>, in agreement with the video’s example. The numerical agreement checks the implementation of the ramp and centering. The zero-free conclusion comes from the analytic argument and the arithmetic bound.</p>
+      </div>
+    </section>
+
+    <section class="sources" id="sources" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources and their roles</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=7TNj74KXtBA">Dirac’s original explainer</a> supplied the narration, chapter structure, examples, and four frames.</li>
+        <li><a href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper_v2.pdf">Rubinstein’s working guide, version 2</a> supplied the details of the window argument and the roadmap from theta lifts to the prime bound.</li>
+        <li><a href="https://alpo.ge/remark.pdf">Alpöge’s announcement</a> supplied the motivation from Stepanov’s method and the origin of the theta-lift chain.</li>
+        <li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">The Lean verification statement</a> supplied the independent account of how the formal statement and proof were checked.</li>
+      </ul>
+    </section>
+
+    <footer>Companion to <cite>From Chebyshev to the Riemann Hypothesis</cite></footer>
+  </main>
+</body>
+</html>
