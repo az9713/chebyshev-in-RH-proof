@@ -15,7 +15,7 @@ The YouTube transcript supplied the chapter structure and examples. [Michael Rub
 
 ## Live HTML pages
 
-- [From Chebyshev to the Riemann Hypothesis](https://az9713.github.io/chebyshev-tutorial-method/tutorial.html) is the full tutorial with the derivations, four video frames, and two plots. [HTML source](tutorial.html)
-- [How the Chebyshev tutorial was made](https://az9713.github.io/chebyshev-tutorial-method/) documents the transcript, chapter mapping, frame capture, and mathematical checks. [HTML source](index.html)
+- [From Chebyshev to the Riemann Hypothesis](https://az9713.github.io/chebyshev-in-RH-proof/tutorial.html) is the full tutorial with the derivations, four video frames, and two plots. [HTML source](tutorial.html)
+- [How the Chebyshev tutorial was made](https://az9713.github.io/chebyshev-in-RH-proof/) documents the transcript, chapter mapping, frame capture, and mathematical checks. [HTML source](index.html)
 
 Both HTML files can also be downloaded and opened in a browser.
